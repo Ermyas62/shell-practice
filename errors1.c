@@ -68,7 +68,7 @@ int print_d(int input, int fd)
 	if (input < 0)
 	{
 		_abs_ = -input;
-		__putchar('-');
+		_putchar('-');
 		count++;
 	}
 	else
@@ -78,12 +78,12 @@ int print_d(int input, int fd)
 	{
 		if (_abs_ / i)
 		{
-			__putchar('0' + current / i);
+			_putchar('0' + current / i);
 			count++;
 		}
 		current %= i;
 	}
-	__putchar('0' + current);
+	_putchar('0' + current);
 	count++;
 
 	return (count);

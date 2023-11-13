@@ -18,7 +18,7 @@ int hsh(info_t *info, char **av)
 		clear_info(info);
 		if (interactive(info))
 			_puts("$ ");
-		_eputschar(BUF_FLUSH);
+		_eputchar(BUF_FLUSH);
 		r = get_input(info);
 		if (r != -1)
 		{
@@ -31,7 +31,7 @@ int hsh(info_t *info, char **av)
 			_putchar('\n');
 		free_info(info, 0);
 	}
-	wrte_history(info);
+	write_history(info);
 	free_info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
@@ -59,7 +59,7 @@ int find_builtin(info_t *info)
 {
 	int i, built_in_ret = -1;
 
-	builtin_tablebuiltintb1[] = {
+	builtin_table builtintb1[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
 		{"help", _myhelp},
@@ -156,7 +156,7 @@ void fork_cmd(info_t *info)
 		wait(&(info->status));
 		if (WIFEXITED(info->status))
 		{
-			info->status == WEXITSTATUS(info->status);
+			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
 				print_error(info, "Permission denied\n");
 		}

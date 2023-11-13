@@ -25,7 +25,7 @@ char **get_environ(info_t *info)
  * @var: the string env var property
  */
 
-int _unsetenv(inf_t *info, char *var)
+int _unsetenv(info_t *info, char *var)
 {
 	list_t *node = info->env;
 	size_t i = 0;
@@ -41,7 +41,7 @@ int _unsetenv(inf_t *info, char *var)
 			info->env_changed = delete_node_at_index(
 					&(info->env), i);
 			i = 0;
-			mode = info->env;
+			node = info->env;
 			continue;
 		}
 		node = node->next;

@@ -2,6 +2,7 @@
 #define _SHELL_H_
 
 #include <stdio.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
@@ -9,12 +10,11 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <limits.h>
-#include <fcnt1.h>
 #include <errno.h>
 
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
-#define BUF_FLUSH -1
+#define BUF_FLUSH - 1
 
 #define CMD_NORM  0
 #define CMD_OR    1
@@ -68,7 +68,7 @@ typedef struct liststr
  * @histcount: the history line number count
  */
 
-typeof struct passinfo
+typedef struct passinfo
 {
 	char *arg;
 	char **argv;
@@ -91,7 +91,8 @@ typeof struct passinfo
 	int histcount;
 } info_t;
 
-#defiine INFO_INT \ {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+#define INFO_INT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
 
 
@@ -115,7 +116,7 @@ int bfree(void **ptr);
 int loophsh(char **);
 
 int interactive(info_t *info);
-int is_delim(char c char *delim);
+int is_delim(char c, char *delim);
 int _isalpha(int c);
 int _atoi(char *s);
 
@@ -135,8 +136,7 @@ int _mysetenv(info_t *info);
 int _myunsetenv(info_t *info);
 int populate_env_list(info_t *info);
 
-
-void _eputs(char *str);
+void _eputs(char *);
 int _eputchar(char c);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
@@ -150,7 +150,7 @@ void remove_comments(char *buf);
 
 
 char **get_environ(info_t *info);
-int _unsetenv(inf_t *info, char *var);
+int _unsetenv(info_t *info, char *var);
 int _setenv(info_t *info, char *var, char *value);
 
 
@@ -214,7 +214,7 @@ char *_strcat(char *dest, char *src);
 
 char *_strcpy(char *dest, char *src);
 char *_strdup(const char *src);
-void_puts(char *str);
+void _puts(char *str);
 int _putchar(char c);
 
 

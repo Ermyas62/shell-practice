@@ -50,7 +50,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (!ptr)
 		return (malloc(new_size));
 	if (!new_size)
-		return (free(otr), NULL);
+		return (free(ptr), NULL);
 	if (new_size == old_size)
 		return (ptr);
 

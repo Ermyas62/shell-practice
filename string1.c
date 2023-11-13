@@ -25,12 +25,12 @@ char *_strcpy(char *dest, char *src)
 
 /**
  * _strdup - duplicates a string
- * @src: the string to duplicate
+ * @str: the string to duplicate
  *
  * Return: pointer to the duplicated string
  */
 
-char *_strdup(const char *src)
+char *_strdup(const char *str)
 {
 	int length = 0;
 	char *ret;
@@ -42,7 +42,7 @@ char *_strdup(const char *src)
 	ret = malloc(sizeof(char) * (length + 1));
 	if (!ret)
 		return (NULL);
-	for (length++; length--)
+	for (length++; length--;)
 		ret[length] = *--str;
 	return (ret);
 }
@@ -54,7 +54,7 @@ char *_strdup(const char *src)
  * Return: Nothing
  */
 
-void_puts(char *str)
+void _puts(char *str)
 {
 	int i = 0;
 

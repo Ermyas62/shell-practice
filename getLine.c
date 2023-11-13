@@ -60,7 +60,7 @@ ssize_t get_input(info_t *info)
 	ssize_t r = 0;
 	char **buf_p = &(info->arg), *p;
 
-	_puychar(BUF_FLUSH);
+	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
 	if (r == -1) /* EOF */
 		return (-1);
