@@ -165,10 +165,10 @@ void free_info(info_t *info, int all);
 
 
 ssize_t input_buf(info_t *info, char **buf, size_t *len);
-ssize_t get_input(info_t *info);
+ssize_t get_input(info_t *);
 ssize_t read_buf(info_t *info, char *buf, size_t *i);
 int _getline(info_t *info, char **ptr, size_t *length);
-void sigintHandler(__attribute__((unused))int sig_num);
+void sigintHandler(int);
 
 
 size_t list_len(const list_t *h);

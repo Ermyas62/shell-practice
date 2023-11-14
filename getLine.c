@@ -23,13 +23,13 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 #if USE_GETLINE
 		r = getline(buf, &len_p, stdin);
 #else
-		r = _getline(info, buf, &len_p);
+		r = _getline(info, buf, len_p);
 #endif
 		if (r > 0)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] == '\0'; /* remove trailing newline */
+				(*buf)[r - 1] = '\0'; /* remove trailing newline */
 				r--;
 			}
 			info->linecount_flag = 1;
@@ -145,7 +145,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	if (s)
 		_strncat(new_p, buf + i, k - 1);
 	else
-		_strcpy(new_p, buf + i, k - 1 + 1);
+		_strncpy(new_p, buf + i, k - 1 + 1);
 
 	s += k - i;
 	i = k;
