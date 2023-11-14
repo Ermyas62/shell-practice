@@ -12,7 +12,7 @@
 ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
 	ssize_t r = 0;
-	ssize_t len_p = 0;
+	size_t len_p = 0;
 
 	if (!*len) /* if nothing left in the buffer, fill it */
 	{
@@ -23,7 +23,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 #if USE_GETLINE
 		r = getline(buf, &len_p, stdin);
 #else
-		r = _getline(info, buf, len_p);
+		r = _getline(info, buf, &len_p);
 #endif
 		if (r > 0)
 		{
@@ -139,7 +139,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 		return (-1);
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = realloc(p, s, s ? s + k : k + 1);
+	new_p = _realloc(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE */
 		return (p ? free(p), -1 : -1);
 	if (s)
