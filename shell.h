@@ -14,7 +14,7 @@
 
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
-#define BUF_FLUSH - 1
+#define BUF_FLUSH -1
 
 #define CMD_NORM  0
 #define CMD_OR    1
@@ -227,6 +227,5 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len);
 int replace_alias(info_t *info);
 int replace_vars(info_t *info);
 int replace_string(char **old, char *new);
-
 
 #endif
